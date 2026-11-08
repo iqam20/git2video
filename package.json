@@ -5,14 +5,14 @@
   "type": "module",
   "license": "MIT",
   "engines": {
-    "node": ">=20"
+    "node": ">=22"
   },
   "bin": {
     "git2video": "cli.mjs"
   },
   "scripts": {
     "doctor": "node skills/git2video/scripts/doctor.mjs",
-    "test": "node --test tests/"
+    "test": "node --test \"tests/*.test.mjs\""
   },
   "dependencies": {
     "gsap": "^3.15.1",

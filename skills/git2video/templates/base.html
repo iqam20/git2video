@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>git2video</title>
+<style>
+  /* ============ base layout (theme files define the CSS variables) ============ */
+  :root {
+    --bg: #0e1117;
+    --bg2: #161b22;
+    --fg: #e6edf3;
+    --fg-dim: rgba(230, 237, 243, 0.62);
+    --accent: #3fd68c;
+    --accent2: #58a6ff;
+    --add: #3fd68c;
+    --del: #ff6188;
+    --muted: rgba(230, 237, 243, 0.5);
+    --radius: 0.14rem;
+    --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  }
+  html, body { margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden; }
+  body { background: var(--bg); color: var(--fg); font-family: var(--font); }
+  #stage { position: fixed; inset: 0; }
+  .safe { position: absolute; inset: 5%; }   /* safe area: 5% margin on every side */
+  .g2v-scene { position: absolute; inset: 0; overflow: hidden; background: var(--bg); }
+  /* the master timeline in paused mode — every animation lives here */
+  .g2v-check { will-change: transform, opacity; }
+  /* burned captions (shown when the release ships silent) */
+  #g2v-caption { position: absolute; left: 5%; right: 5%; bottom: 5.6%; text-align: center;
+    font-size: 0.34rem; line-height: 1.35; font-weight: 600; color: var(--fg);
+    text-shadow: 0 1px 8px rgba(0,0,0,0.55); pointer-events: none; }
+  #g2v-caption span { display: inline-block; padding: 0.06rem 0.34rem; border-radius: 0.1rem;
+    background: rgba(8, 10, 14, 0.42); box-decoration-break: clone; -webkit-box-decoration-break: clone; }
+</style>
+<!--@@THEME@@-->
+</head>
+<body>
+  <div id="stage"><div class="safe" id="root"></div><div id="g2v-caption"></div></div>
+<script>/* @@ANIM@@ */</script>
+<script>
+/* ---- scene registry (scenes/*.js are concatenated before this contract) ---- */
+window.SCENES = window.SCENES || {};
+
+/* ---- render contract ----
+   window.__STORYBOARD = injected storyboard JSON
+   window.__duration   = total timeline seconds (number)
+   window.__seek(t)    = set timeline time to t, force layout, return duration
+   window.__layoutReport() = audit of all .g2v-check elements vs the 5% safe area */
+window.__build = function __build() {
+  const sb = window.__STORYBOARD;
+  if (!sb || !Array.isArray(sb.scenes) || !sb.scenes.length) throw new Error("storyboard missing or has no scenes");
+  const tl = window.__Anim.timeline({ paused: true });
+  let declaredStart = 0;
+  const capLayer = document.getElementById("g2v-caption");
+  for (const scene of sb.scenes) {
+    const sc = window.SCENES[scene.type];
+    if (!sc) throw new Error("unknown scene type: " + scene.type);
+    if (typeof sc.build !== "function") throw new Error(`scene type "${scene.type}" has no build()`);
+    const dur = typeof scene.duration === "number" && scene.duration > 0 ? scene.duration : sc.defaultDuration || 3;
+    const built = sc.build({ tl, scene, start: declaredStart, dur, preset: (sb.meta && sb.meta.preset) || "16:9" });
+    const el = built && built.node ? built.node : built;
+    if (!el) throw new Error(`scene "${scene.id}" did not return its DOM node`);
+    // visibility ladder: hide at t=0, show at scene start, hide again at scene end
+    tl.set(el, { autoAlpha: 0 }, 0);
+    tl.set(el, { autoAlpha: 1 }, declaredStart);
+    tl.set(el, { autoAlpha: 0 }, declaredStart + dur - 0.0002);
+    // burned caption when the scene carries narration
+    const narration = typeof scene.narration === "string" ? scene.narration.trim() : "";
+    if (narration) {
+      const cap = document.createElement("div");
+      cap.className = "g2v-check";
+      cap.setAttribute("data-scene", scene.id || scene.type);
+      const span = document.createElement("span");
+      span.textContent = narration;
+      cap.appendChild(span);
+      capLayer.appendChild(cap);
+      // reading-time rule: caption is visible for the whole scene slot
+      tl.set(cap, { autoAlpha: 0 }, 0);
+      tl.set(cap, { autoAlpha: 1 }, declaredStart + 0.12);
+      tl.set(cap, { autoAlpha: 0 }, declaredStart + dur - 0.0002);
+    }
+    declaredStart += dur;
+  }
+  // clamp: pad or trim to the exact declared total (trimming only possible because
+  // scenes never exceed their declared slot)
+  const total = sb.scenes.reduce((a, s) => a + (s.duration || 3), 0);
+  if (tl.duration() > total + 0.001) {
+    const bad = sb.scenes[sb.scenes.length - 1];
+    throw new Error(`timeline overflows its declared total (${tl.duration().toFixed(2)} > ${total}): check scene "${bad.id}"`);
+  }
+  if (tl.duration() < total - 0.001) tl.to({ _pad: 1 }, { _pad: 1, duration: total - tl.duration() }, tl.duration());
+  return tl;
+};
+</script>
+<script>
+window.__boot = function __boot() {
+  window.__tl = window.__build();
+  window.__duration = window.__tl.duration();
+  window.__seek = function __seek(t) {
+    window.__tl.time(Math.max(0, Math.min(window.__duration, t)), false);
+    void document.body.offsetHeight; /* force layout settle */
+    return window.__duration;
+  };
+  window.__layoutReport = function __layoutReport() {
+    const safe = { l: innerWidth * 0.05, r: innerWidth * 0.95, t: innerHeight * 0.05, b: innerHeight * 0.95 };
+    const out = [];
+    for (const el of document.querySelectorAll(".g2v-check")) {
+      const r = el.getBoundingClientRect();
+      if (!r.width && !r.height) continue;
+      // slack: a font's inline glyph box routinely exceeds a compact line-height
+      // (e.g. 130px font, line-height 1.04 -> scrollHeight ~9px taller) without
+      // any visual clipping; tolerance scales with the font size so real
+      // content overflow (whole extra lines / wider text) still flags.
+      const fspx = parseFloat(getComputedStyle(el).fontSize) || 16;
+      const slack = Math.max(2, Math.round(fspx * 0.1) + 1);
+      const overflow = el.scrollWidth > el.clientWidth + 1 || el.scrollHeight > el.clientHeight + slack;
+      const outside = r.left < safe.l - 0.5 || r.right > safe.r + 0.5 || r.top < safe.t - 0.5 || r.bottom > safe.b + 0.5;
+      out.push({
+        scene: el.closest("[data-scene]") ? el.closest("[data-scene]").getAttribute("data-scene") : null,
+        text: (el.textContent || "").trim().slice(0, 80),
+        rect: { l: Math.round(r.left), t: Math.round(r.top), r: Math.round(r.right), b: Math.round(r.bottom) },
+        overflow, outside,
+      });
+    }
+    return out;
+  };
+  return window.__duration;
+};
+</script>
+</body>
+</html>

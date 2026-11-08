@@ -1,0 +1,17 @@
+{
+  "meta": { "repo": "fixture", "label": "v0.1.0", "theme": "dark" },
+  "scenes": [
+    {
+      "id": "s-title",
+      "type": "title",
+      "duration": 2.0,
+      "narration": "",
+      "data": {
+        "label": "v0.1.0",
+        "repo": "fixture project",
+        "date": "2026-11-08",
+        "tagline": "the first release"
+      }
+    }
+  ]
+}

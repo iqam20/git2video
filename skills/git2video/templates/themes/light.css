@@ -1,0 +1,11 @@
+/* theme: light — clean release-notes look */
+:root {
+  --bg: #f7f8fa;
+  --fg: #10151d;
+  --fg-dim: rgba(16, 21, 29, 0.62);
+  --muted: rgba(16, 21, 29, 0.42);
+  --accent: #1a7f4e;
+  --accent2: #155e92;
+  --add: #1a7f4e;
+  --del: #b91c1c;
+}

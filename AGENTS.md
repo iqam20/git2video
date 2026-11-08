@@ -52,7 +52,7 @@ node --test tests/                           # run all tests
 
 ## Conventions
 
-- Node >= 20, ESM (`"type":"module"`), `node:test` + `node:assert` for tests.
+- Node >= 22, ESM (`"type":"module"`), `node:test` + `node:assert` for tests.
 - Scripts: POSIX-style flags (--repo, --from, --out), JSON to files, human errors to
   stderr with exit codes ≠ 0. Print JSON machine-readable on stdout where noted.
 - Story flow: collect → (agent) storyboard.json → validate → render → qa → deliver.

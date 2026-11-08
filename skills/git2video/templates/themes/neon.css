@@ -1,0 +1,11 @@
+/* theme: neon — high-contrast announcement look */
+:root {
+  --bg: #05060f;
+  --fg: #f4f7ff;
+  --fg-dim: rgba(244, 247, 255, 0.66);
+  --muted: rgba(244, 247, 255, 0.42);
+  --accent: #a78bfa;
+  --accent2: #22d3ee;
+  --add: #34d399;
+  --del: #fb7185;
+}

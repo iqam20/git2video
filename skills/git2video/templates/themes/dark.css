@@ -1,0 +1,12 @@
+/* theme: dark — default release-video look (CSS variables + tint only).
+   base.html provides layout + fallback values; themes may override variables. */
+:root {
+  --bg: #0d1117;
+  --fg: #e6edf3;
+  --fg-dim: rgba(230, 237, 243, 0.64);
+  --muted: rgba(230, 237, 243, 0.42);
+  --accent: #4ade80;
+  --accent2: #60a5fa;
+  --add: #4ade80;
+  --del: #f87171;
+}
