@@ -106,6 +106,20 @@ window.__boot = function __boot() {
     const safe = { l: innerWidth * 0.05, r: innerWidth * 0.95, t: innerHeight * 0.05, b: innerHeight * 0.95 };
     const out = [];
     for (const el of document.querySelectorAll(".g2v-check")) {
+      // QA checks what the viewer sees: skip elements hidden by their scene's
+      // (auto-Alpha visibility is inherited) or whose effective opacity
+      // (product down the tree) is ~0 — inactive scenes sit in "from" states
+      // that are never rendered visibly.
+      let chain = [];
+      for (let n = el; n; n = n.parentElement) chain.push(n);
+      let op = 1;
+      let visible = true;
+      for (const n of chain) {
+        const cs = getComputedStyle(n);
+        if (cs.visibility === "hidden") { visible = false; break; }
+        op *= parseFloat(cs.opacity);
+      }
+      if (!visible || op < 0.05) continue;
       const r = el.getBoundingClientRect();
       if (!r.width && !r.height) continue;
       // slack: a font's inline glyph box routinely exceeds a compact line-height

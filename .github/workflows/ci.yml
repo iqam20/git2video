@@ -25,7 +25,7 @@ jobs:
         run: node --test tests/
       - name: Verify committed example video is present
         run: |
-          test -f examples/git2video/git2video.mp4 || echo "::warning::examples/git2video/git2video.mp4 missing"
+          test -f examples/git2video/video.mp4 || echo "::warning::examples/git2video/video.mp4 missing"
 
   windows-smoke:
     runs-on: windows-latest

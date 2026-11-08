@@ -1,0 +1,76 @@
+{
+  "checks": {
+    "resolution": {
+      "actual": "1920x1080",
+      "expected": "1920x1080"
+    },
+    "codec": {
+      "actual": "h264/yuv420p",
+      "expected": "h264/yuv420p"
+    },
+    "duration": {
+      "actual": 24.5,
+      "expected": 24.5,
+      "delta": 0
+    },
+    "audio": "none (by design in v0.1; burned captions instead)",
+    "layout": {
+      "samples": 15,
+      "violations": 0
+    },
+    "frames": [
+      {
+        "t": 2.45,
+        "ymin": 21,
+        "ymax": 229,
+        "variant": 208,
+        "blank": false,
+        "black": false
+      },
+      {
+        "t": 6.37,
+        "ymin": 17,
+        "ymax": 230,
+        "variant": 213,
+        "blank": false,
+        "black": false
+      },
+      {
+        "t": 10.29,
+        "ymin": 20,
+        "ymax": 227,
+        "variant": 207,
+        "blank": false,
+        "black": false
+      },
+      {
+        "t": 14.21,
+        "ymin": 20,
+        "ymax": 227,
+        "variant": 207,
+        "blank": false,
+        "black": false
+      },
+      {
+        "t": 18.13,
+        "ymin": 17,
+        "ymax": 230,
+        "variant": 213,
+        "blank": false,
+        "black": false
+      },
+      {
+        "t": 22.05,
+        "ymin": 18,
+        "ymax": 229,
+        "variant": 211,
+        "blank": false,
+        "black": false
+      }
+    ]
+  },
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "ok": true
+}

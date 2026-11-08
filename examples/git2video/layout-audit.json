@@ -1,0 +1,663 @@
+{
+  "preset": "16:9",
+  "fps": 30,
+  "total": 24.4998,
+  "spots": [
+    {
+      "scene": "s-title",
+      "t": 0.26666666666666666
+    },
+    {
+      "scene": "s-title",
+      "t": 1.5666666666666667
+    },
+    {
+      "scene": "s-title",
+      "t": 3.066666666666667
+    },
+    {
+      "scene": "s-highlights",
+      "t": 3.966666666666667
+    },
+    {
+      "scene": "s-highlights",
+      "t": 6.2
+    },
+    {
+      "scene": "s-highlights",
+      "t": 8.766666666666667
+    },
+    {
+      "scene": "s-diff",
+      "t": 10.033333333333333
+    },
+    {
+      "scene": "s-diff",
+      "t": 12.433333333333334
+    },
+    {
+      "scene": "s-diff",
+      "t": 15.233333333333333
+    },
+    {
+      "scene": "s-stats",
+      "t": 16.366666666666667
+    },
+    {
+      "scene": "s-stats",
+      "t": 18.033333333333335
+    },
+    {
+      "scene": "s-stats",
+      "t": 19.966666666666665
+    },
+    {
+      "scene": "s-outro",
+      "t": 20.833333333333332
+    },
+    {
+      "scene": "s-outro",
+      "t": 22.3
+    },
+    {
+      "scene": "s-outro",
+      "t": 24.033333333333335
+    }
+  ],
+  "audits": [
+    {
+      "scene": "s-title",
+      "t": 0.26666666666666666,
+      "elements": [
+        {
+          "scene": "s-title",
+          "text": "This announcement comes from its own git history.",
+          "rect": {
+            "l": 96,
+            "t": 730,
+            "r": 1824,
+            "b": 788
+          },
+          "overflow": false,
+          "outside": false
+        },
+        {
+          "scene": "s-title",
+          "text": "v0.1.0",
+          "rect": {
+            "l": 144,
+            "t": 369,
+            "r": 1776,
+            "b": 496
+          },
+          "overflow": false,
+          "outside": false
+        }
+      ]
+    },
+    {
+      "scene": "s-title",
+      "t": 1.5666666666666667,
+      "elements": [
+        {
+          "scene": "s-title",
+          "text": "This announcement comes from its own git history.",
+          "rect": {
+            "l": 96,
+            "t": 730,
+            "r": 1824,
+            "b": 788
+          },
+          "overflow": false,
+          "outside": false
+        },
+        {
+          "scene": "s-title",
+          "text": "v0.1.0",
+          "rect": {
+            "l": 96,
+            "t": 365,
+            "r": 1824,
+            "b": 500
+          },
+          "overflow": false,
+          "outside": false
+        },
+        {
+          "scene": "s-title",
+          "text": "git history in, release video out — fully offline",
+          "rect": {
+            "l": 96,
+            "t": 584,
+            "r": 904,
+            "b": 634
+          },
+          "overflow": false,
+          "outside": false
+        }
+      ]
+    },
+    {
+      "scene": "s-title",
+      "t": 3.066666666666667,
+      "elements": [
+        {
+          "scene": "s-title",
+          "text": "This announcement comes from its own git history.",
+          "rect": {
+            "l": 96,
+            "t": 730,
+            "r": 1824,
+            "b": 788
+          },
+          "overflow": false,
+          "outside": false
+        },
+        {
+          "scene": "s-title",
+          "text": "v0.1.0",
+          "rect": {
+            "l": 96,
+            "t": 365,
+            "r": 1824,
+            "b": 500
+          },
+          "overflow": false,
+          "outside": false
+        },
+        {
+          "scene": "s-title",
+          "text": "git history in, release video out — fully offline",
+          "rect": {
+            "l": 96,
+            "t": 584,
+            "r": 904,
+            "b": 634
+          },
+          "overflow": false,
+          "outside": false
+        }
+      ]
+    },
+    {
+      "scene": "s-highlights",
+      "t": 3.966666666666667,
+      "elements": [
+        {
+          "scene": "s-highlights",
+          "text": "Collect reads real git history and scrubs secrets. The renderer is deterministic",
+          "rect": {
+            "l": 96,
+            "t": 788,
+            "r": 1824,
+            "b": 846
+          },
+          "overflow": false,
+          "outside": false
+        },
+        {
+          "scene": "s-highlights",
+          "text": "what's new",
+          "rect": {
+            "l": 96,
+            "t": 140,
+            "r": 696,
+            "b": 192
+          },
+          "overflow": false,
+          "outside": false
+        },
+        {
+          "scene": "s-highlights",
+          "text": "featcollect.mjs: real git history to story.json, secrets scrubbedfeatrender engi",
+          "rect": {
+            "l": 96,
+            "t": 268,
+            "r": 1807,
+            "b": 526
+          },
+          "overflow": false,
+          "outside": false
+        }
+      ]
+    },
+    {
+      "scene": "s-highlights",
+      "t": 6.2,
+      "elements": [
+        {
+          "scene": "s-highlights",
+          "text": "Collect reads real git history and scrubs secrets. The renderer is deterministic",
+          "rect": {
+            "l": 96,
+            "t": 788,
+            "r": 1824,
+            "b": 846
+          },
+          "overflow": false,
+          "outside": false
+        },
+        {
+          "scene": "s-highlights",
+          "text": "what's new",
+          "rect": {
+            "l": 96,
+            "t": 141,
+            "r": 696,
+            "b": 193
+          },
+          "overflow": false,
+          "outside": false
+        },
+        {
+          "scene": "s-highlights",
+          "text": "featcollect.mjs: real git history to story.json, secrets scrubbedfeatrender engi",
+          "rect": {
+            "l": 96,
+            "t": 268,
+            "r": 1807,
+            "b": 526
+          },
+          "overflow": false,
+          "outside": false
+        }
+      ]
+    },
+    {
+      "scene": "s-highlights",
+      "t": 8.766666666666667,
+      "elements": [
+        {
+          "scene": "s-highlights",
+          "text": "Collect reads real git history and scrubs secrets. The renderer is deterministic",
+          "rect": {
+            "l": 96,
+            "t": 788,
+            "r": 1824,
+            "b": 846
+          },
+          "overflow": false,
+          "outside": false
+        },
+        {
+          "scene": "s-highlights",
+          "text": "what's new",
+          "rect": {
+            "l": 96,
+            "t": 141,
+            "r": 696,
+            "b": 193
+          },
+          "overflow": false,
+          "outside": false
+        },
+        {
+          "scene": "s-highlights",
+          "text": "featcollect.mjs: real git history to story.json, secrets scrubbedfeatrender engi",
+          "rect": {
+            "l": 96,
+            "t": 268,
+            "r": 1807,
+            "b": 526
+          },
+          "overflow": false,
+          "outside": false
+        }
+      ]
+    },
+    {
+      "scene": "s-diff",
+      "t": 10.033333333333333,
+      "elements": [
+        {
+          "scene": "s-diff",
+          "text": "Rendering seeks a paused timeline frame by frame into ffmpeg. Same storyboard, b",
+          "rect": {
+            "l": 96,
+            "t": 846,
+            "r": 1824,
+            "b": 904
+          },
+          "overflow": false,
+          "outside": false
+        },
+        {
+          "scene": "s-diff",
+          "text": "skills/git2video/scripts/collect.mjs\n          ec59569",
+          "rect": {
+            "l": 96,
+            "t": 151,
+            "r": 1824,
+            "b": 179
+          },
+          "overflow": false,
+          "outside": false
+        },
+        {
+          "scene": "s-diff",
+          "text": "@@ -0,0 +1,390 @@\n+#!/usr/bin/env node\n+// collect.mjs — read real git history a",
+          "rect": {
+            "l": 96,
+            "t": 225,
+            "r": 1824,
+            "b": 840
+          },
+          "overflow": false,
+          "outside": false
+        }
+      ]
+    },
+    {
+      "scene": "s-diff",
+      "t": 12.433333333333334,
+      "elements": [
+        {
+          "scene": "s-diff",
+          "text": "Rendering seeks a paused timeline frame by frame into ffmpeg. Same storyboard, b",
+          "rect": {
+            "l": 96,
+            "t": 846,
+            "r": 1824,
+            "b": 904
+          },
+          "overflow": false,
+          "outside": false
+        },
+        {
+          "scene": "s-diff",
+          "text": "skills/git2video/scripts/collect.mjs\n          ec59569",
+          "rect": {
+            "l": 96,
+            "t": 151,
+            "r": 1824,
+            "b": 179
+          },
+          "overflow": false,
+          "outside": false
+        },
+        {
+          "scene": "s-diff",
+          "text": "@@ -0,0 +1,390 @@\n+#!/usr/bin/env node\n+// collect.mjs — read real git history a",
+          "rect": {
+            "l": 96,
+            "t": 215,
+            "r": 1824,
+            "b": 830
+          },
+          "overflow": false,
+          "outside": false
+        }
+      ]
+    },
+    {
+      "scene": "s-diff",
+      "t": 15.233333333333333,
+      "elements": [
+        {
+          "scene": "s-diff",
+          "text": "Rendering seeks a paused timeline frame by frame into ffmpeg. Same storyboard, b",
+          "rect": {
+            "l": 96,
+            "t": 846,
+            "r": 1824,
+            "b": 904
+          },
+          "overflow": false,
+          "outside": false
+        },
+        {
+          "scene": "s-diff",
+          "text": "skills/git2video/scripts/collect.mjs\n          ec59569",
+          "rect": {
+            "l": 96,
+            "t": 151,
+            "r": 1824,
+            "b": 179
+          },
+          "overflow": false,
+          "outside": false
+        },
+        {
+          "scene": "s-diff",
+          "text": "@@ -0,0 +1,390 @@\n+#!/usr/bin/env node\n+// collect.mjs — read real git history a",
+          "rect": {
+            "l": 96,
+            "t": 202,
+            "r": 1824,
+            "b": 817
+          },
+          "overflow": false,
+          "outside": false
+        }
+      ]
+    },
+    {
+      "scene": "s-stats",
+      "t": 16.366666666666667,
+      "elements": [
+        {
+          "scene": "s-stats",
+          "text": "Four commits, thirty-seven files. Every claim traces to a commit sha.",
+          "rect": {
+            "l": 96,
+            "t": 904,
+            "r": 1824,
+            "b": 962
+          },
+          "overflow": false,
+          "outside": false
+        },
+        {
+          "scene": "s-stats",
+          "text": "0commits0files changed+0added-0removed0contributors",
+          "rect": {
+            "l": 96,
+            "t": 392,
+            "r": 1824,
+            "b": 506
+          },
+          "overflow": false,
+          "outside": false
+        }
+      ]
+    },
+    {
+      "scene": "s-stats",
+      "t": 18.033333333333335,
+      "elements": [
+        {
+          "scene": "s-stats",
+          "text": "Four commits, thirty-seven files. Every claim traces to a commit sha.",
+          "rect": {
+            "l": 96,
+            "t": 904,
+            "r": 1824,
+            "b": 962
+          },
+          "overflow": false,
+          "outside": false
+        },
+        {
+          "scene": "s-stats",
+          "text": "3commits31files changed+2,518added-0removed1contributors",
+          "rect": {
+            "l": 96,
+            "t": 384,
+            "r": 1824,
+            "b": 498
+          },
+          "overflow": false,
+          "outside": false
+        }
+      ]
+    },
+    {
+      "scene": "s-stats",
+      "t": 19.966666666666665,
+      "elements": [
+        {
+          "scene": "s-stats",
+          "text": "Four commits, thirty-seven files. Every claim traces to a commit sha.",
+          "rect": {
+            "l": 96,
+            "t": 904,
+            "r": 1824,
+            "b": 962
+          },
+          "overflow": false,
+          "outside": false
+        },
+        {
+          "scene": "s-stats",
+          "text": "4commits37files changed+3,039added-0removed1contributors",
+          "rect": {
+            "l": 96,
+            "t": 384,
+            "r": 1824,
+            "b": 498
+          },
+          "overflow": false,
+          "outside": false
+        }
+      ]
+    },
+    {
+      "scene": "s-outro",
+      "t": 20.833333333333332,
+      "elements": [
+        {
+          "scene": "s-outro",
+          "text": "MIT licensed, fully offline. Point it at your repo.",
+          "rect": {
+            "l": 96,
+            "t": 962,
+            "r": 1824,
+            "b": 1020
+          },
+          "overflow": false,
+          "outside": false
+        },
+        {
+          "scene": "s-outro",
+          "text": "Try it on your repo",
+          "rect": {
+            "l": 106,
+            "t": 307,
+            "r": 1814,
+            "b": 366
+          },
+          "overflow": false,
+          "outside": false
+        }
+      ]
+    },
+    {
+      "scene": "s-outro",
+      "t": 22.3,
+      "elements": [
+        {
+          "scene": "s-outro",
+          "text": "MIT licensed, fully offline. Point it at your repo.",
+          "rect": {
+            "l": 96,
+            "t": 962,
+            "r": 1824,
+            "b": 1020
+          },
+          "overflow": false,
+          "outside": false
+        },
+        {
+          "scene": "s-outro",
+          "text": "Try it on your repo",
+          "rect": {
+            "l": 96,
+            "t": 307,
+            "r": 1824,
+            "b": 367
+          },
+          "overflow": false,
+          "outside": false
+        },
+        {
+          "scene": "s-outro",
+          "text": "$\n          npx skills add iqam20/git2video",
+          "rect": {
+            "l": 690,
+            "t": 417,
+            "r": 1230,
+            "b": 487
+          },
+          "overflow": false,
+          "outside": false
+        },
+        {
+          "scene": "s-outro",
+          "text": "github.com/iqam20/git2video",
+          "rect": {
+            "l": 96,
+            "t": 515,
+            "r": 1824,
+            "b": 539
+          },
+          "overflow": false,
+          "outside": false
+        }
+      ]
+    },
+    {
+      "scene": "s-outro",
+      "t": 24.033333333333335,
+      "elements": [
+        {
+          "scene": "s-outro",
+          "text": "MIT licensed, fully offline. Point it at your repo.",
+          "rect": {
+            "l": 96,
+            "t": 962,
+            "r": 1824,
+            "b": 1020
+          },
+          "overflow": false,
+          "outside": false
+        },
+        {
+          "scene": "s-outro",
+          "text": "Try it on your repo",
+          "rect": {
+            "l": 96,
+            "t": 307,
+            "r": 1824,
+            "b": 367
+          },
+          "overflow": false,
+          "outside": false
+        },
+        {
+          "scene": "s-outro",
+          "text": "$\n          npx skills add iqam20/git2video",
+          "rect": {
+            "l": 690,
+            "t": 417,
+            "r": 1230,
+            "b": 487
+          },
+          "overflow": false,
+          "outside": false
+        },
+        {
+          "scene": "s-outro",
+          "text": "github.com/iqam20/git2video",
+          "rect": {
+            "l": 96,
+            "t": 515,
+            "r": 1824,
+            "b": 539
+          },
+          "overflow": false,
+          "outside": false
+        }
+      ]
+    }
+  ]
+}

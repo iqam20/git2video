@@ -21,20 +21,25 @@ window.SCENES.highlights = {
     };
     for (const it of items) {
       const row = document.createElement("div");
-      row.style.cssText = "display:flex;gap:.22rem;align-items:baseline;margin-bottom:.24rem";
+      row.style.cssText = "margin-bottom:.24rem";
+      // inner max-content wrapper: the entrance slides THIS (not the row box),
+      // so a mid-entrance offset never inflates the row's scrollable overflow
+      const inner = document.createElement("div");
+      inner.style.cssText = "display:flex;gap:.22rem;align-items:baseline;width:max-content";
       const chip = document.createElement("span");
       chip.style.cssText = `flex:0 0 auto;font-family:var(--mono);font-size:.17rem;padding:.03rem .14rem;border-radius:.06rem;color:${chipColor[it.type] || "var(--fg-dim)"};background:color-mix(in srgb, ${chipColor[it.type] || "var(--fg-dim)"} 14%, transparent);border:1px solid color-mix(in srgb, ${chipColor[it.type] || "var(--fg-dim)"} 40%, transparent)`;
       chip.textContent = it.type || "changed";
       const txt = document.createElement("span");
       txt.style.cssText = "font-size:.30rem;line-height:1.35;font-weight:500";
       txt.textContent = String(it.text || "");
-      row.append(chip, txt);
+      inner.append(chip, txt);
+      row.appendChild(inner);
       list.appendChild(row);
     }
     tl.from(el.querySelector(".g2v-hl-head"), { autoAlpha: 0, y: "-0.35rem", duration: 0.5, ease: "power2.out" }, start + 0.12);
     const step = Math.max(0.06, Math.min(0.16, (Math.max(dur - 1.1, 0.4)) / Math.max(items.length, 1)));
     [...list.children].forEach((row, i) => {
-      tl.from(row, { autoAlpha: 0, x: "0.6rem", duration: 0.45, ease: "power2.out" }, start + 0.5 + i * step);
+      tl.from(row.firstElementChild, { autoAlpha: 0, x: "0.6rem", duration: 0.45, ease: "power2.out" }, start + 0.5 + i * step);
     });
     return { node: el };
   },

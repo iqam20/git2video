@@ -37,7 +37,9 @@ window.SCENES.diff = {
       pre.appendChild(document.createTextNode("\n"));
     }
     tl.from(el.querySelector(".g2v-diff-file"), { autoAlpha: 0, y: "-0.3rem", duration: 0.45, ease: "power2.out" }, start + 0.12);
-    tl.from(pre, { autoAlpha: 0, scale: 1.05, duration: 0.55, ease: "power2.out" }, start + 0.34);
+    // no scale entrance: pre spans the safe area edge-to-edge, so any scale >1
+    // is outside the 5% safe area during the animation. alpha + settle only.
+    tl.from(pre, { autoAlpha: 0, duration: 0.55, ease: "power2.out" }, start + 0.34);
     tl.from(pre, { y: "0.25rem", duration: Math.max(0.5, dur - 0.9), ease: "none" }, start + 0.34);
     return { node: el };
   },

@@ -1,7 +1,6 @@
 node_modules/
 out/
 out-*/
-*.mp4
-*.webm
-*.gif
+# dogfood example video is committed on purpose (small, README-embedded)
+!examples/git2video/video.mp4
 .DS_Store

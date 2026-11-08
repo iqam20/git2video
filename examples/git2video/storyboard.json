@@ -1,0 +1,89 @@
+{
+  "meta": {
+    "repo": "iqam20/git2video",
+    "label": "v0.1.0",
+    "theme": "dark",
+    "preset": "16:9",
+    "fps": 30
+  },
+  "scenes": [
+    {
+      "id": "s-title",
+      "type": "title",
+      "duration": 3.5,
+      "narration": "This announcement comes from its own git history.",
+      "source": "a07175a0b134e5117297548bcd31c433312f8f5a",
+      "data": {
+        "label": "v0.1.0",
+        "repo": "iqam20/git2video",
+        "tagline": "git history in, release video out — fully offline",
+        "date": "2026-11-08"
+      }
+    },
+    {
+      "id": "s-highlights",
+      "type": "highlights",
+      "duration": 6,
+      "narration": "Collect reads real git history and scrubs secrets. The renderer is deterministic and offline.",
+      "source": "ec5956921cdbdbbd5ffd51f5caeb22023a06f6b1, 6c022570729142ed74b626ada5030f8cd2de84b7",
+      "data": {
+        "items": [
+          {
+            "type": "feat",
+            "text": "collect.mjs: real git history to story.json, secrets scrubbed"
+          },
+          {
+            "type": "feat",
+            "text": "render engine: Playwright to ffmpeg, byte-identical output"
+          },
+          {
+            "type": "feat",
+            "text": "8 scenes, 3 themes, mp4/webm/gif, 16:9 / 9:16 / 1:1"
+          },
+          {
+            "type": "docs",
+            "text": "scripted QA gate: ffprobe + layout audit in out/qa/"
+          }
+        ]
+      }
+    },
+    {
+      "id": "s-diff",
+      "type": "diff",
+      "duration": 6.5,
+      "narration": "Rendering seeks a paused timeline frame by frame into ffmpeg. Same storyboard, byte-identical video.",
+      "source": "6c022570729142ed74b626ada5030f8cd2de84b7, ec5956921cdbdbbd5ffd51f5caeb22023a06f6b1",
+      "data": {
+        "file": "skills/git2video/scripts/collect.mjs",
+        "sha": "ec5956921cdbdbbd5ffd51f5caeb22023a06f6b1",
+        "code": "@@ -0,0 +1,390 @@\n+#!/usr/bin/env node\n+// collect.mjs — read real git history and write story.json.\n+//\n+// Usage:\n+//   node collect.mjs --repo <path> [--from tag|sha|date] [--to <ref>]\n+//                    [--max-commits N] [--include-contributors]\n+//                    [--out <file>]\n+//\n+// Default range: last tag -> HEAD; if the repo has no tags, last 30\n+// days to HEAD; if the repo is younger than that, the entire history."
+      }
+    },
+    {
+      "id": "s-stats",
+      "type": "stats",
+      "duration": 4.5,
+      "narration": "Four commits, thirty-seven files. Every claim traces to a commit sha.",
+      "source": "a07175a0b134e5117297548bcd31c433312f8f5a, ec5956921cdbdbbd5ffd51f5caeb22023a06f6b1, 6c022570729142ed74b626ada5030f8cd2de84b7",
+      "data": {
+        "commits": 4,
+        "files": 37,
+        "additions": 3039,
+        "deletions": 0,
+        "contributors": 1
+      }
+    },
+    {
+      "id": "s-outro",
+      "type": "outro",
+      "duration": 4,
+      "narration": "MIT licensed, fully offline. Point it at your repo.",
+      "source": "6c022570729142ed74b626ada5030f8cd2de84b7",
+      "data": {
+        "headline": "Try it on your repo",
+        "cmd": "npx skills add iqam20/git2video",
+        "url": "github.com/iqam20/git2video"
+      }
+    }
+  ]
+}
