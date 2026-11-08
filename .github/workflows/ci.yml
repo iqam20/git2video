@@ -1,0 +1,45 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+      - name: Install dependencies
+        run: npm install
+      - name: Install Playwright Chromium (with system deps)
+        run: npx playwright install --with-deps chromium
+      - name: Doctor
+        run: node skills/git2video/scripts/doctor.mjs
+      - name: Tests (collect, validate, render golden, qa)
+        run: node --test tests/
+      - name: Verify committed example video is present
+        run: |
+          test -f examples/git2video/git2video.mp4 || echo "::warning::examples/git2video/git2video.mp4 missing"
+
+  windows-smoke:
+    runs-on: windows-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+      - run: npm install
+      - run: npx playwright install chromium
+      - name: Doctor (core check)
+        shell: pwsh
+        run: node skills/git2video/scripts/doctor.mjs
+      - name: Collect smoke test on this repo
+        run: node skills/git2video/scripts/collect.mjs --repo . --out out/smoke/story.json
